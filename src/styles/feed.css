@@ -1,0 +1,112 @@
+/* ------------------------------------------------------------------
+   Home: stories, feed column, right rail
+------------------------------------------------------------------- */
+.home { display: flex; justify-content: center; gap: 64px; padding: 0 16px; }
+.home-feed { width: 100%; max-width: 630px; padding-top: 22px; }
+.feed { max-width: 470px; margin: 0 auto; }
+
+/* stories */
+.stories-wrap { position: relative; margin: 0 auto 24px; max-width: 630px; }
+.stories { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 8px 4px; scroll-behavior: smooth; }
+.stories::-webkit-scrollbar { display: none; }
+.story { flex: none; width: 74px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.story > .avatar { transition: transform 0.15s; }
+.story > .avatar:active { transform: scale(0.95); }
+.story-name { width: 74px; text-align: center; font-size: 12px; line-height: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.story-add { position: relative; width: 66px; height: 66px; padding: 4px; border-radius: 50%; }
+.story-plus {
+  position: absolute; right: 0; bottom: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: #fff;
+  display: flex; align-items: center; justify-content: center; border: 2px solid var(--bg);
+}
+.stories-arrow {
+  position: absolute; top: 30px; z-index: 2; width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; background: #fff; color: #262626;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25); opacity: 0.9;
+}
+.stories-arrow.left { left: 8px; }
+.stories-arrow.right { right: 8px; }
+
+/* post card */
+.post-card { padding-bottom: 16px; margin-bottom: 20px; border-bottom: 1px solid var(--border); }
+.post-head { display: flex; align-items: center; gap: 12px; padding: 0 4px 12px 4px; }
+.post-head-text { flex: 1; overflow: hidden; }
+.post-head-line { display: flex; align-items: center; flex-wrap: nowrap; white-space: nowrap; overflow: hidden; }
+.post-location { font-size: 12px; line-height: 16px; display: flex; align-items: center; gap: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.post-head .icon-btn { padding: 4px 0 4px 8px; }
+.post-card .post-media { border-radius: 4px; outline: 1px solid var(--border-soft); outline-offset: -1px; }
+.post-actions { display: flex; align-items: center; padding: 4px 0; margin-left: -8px; }
+.post-actions .push-right { margin-left: auto; margin-right: -8px; }
+.like-btn.liked { color: var(--red); }
+.like-btn.liked svg { animation: like-pop 0.45s cubic-bezier(0.2, 1.5, 0.4, 1); }
+@keyframes like-pop { 0% { transform: scale(0.6); } 50% { transform: scale(1.25); } 100% { transform: scale(1); } }
+.post-body { display: flex; flex-direction: column; gap: 8px; }
+.likes { font-weight: 600; }
+.likes.light { font-weight: 400; }
+.caption { overflow-wrap: anywhere; }
+.caption-text { white-space: pre-line; }
+.view-comments { align-self: flex-start; text-align: left; }
+.post-card .comment-input { margin-top: -2px; }
+
+/* comment input */
+.comment-input { position: relative; display: flex; align-items: center; gap: 8px; }
+.comment-input textarea {
+  flex: 1; border: 0; outline: 0; background: transparent; resize: none; height: 18px; max-height: 80px;
+  font-size: 14px; line-height: 18px; padding: 0;
+}
+.comment-input.ci-modal { padding: 6px 16px 6px 8px; min-height: 53px; border-top: 1px solid var(--border); }
+.comment-input.disabled { color: var(--text-2); padding: 18px 16px; justify-content: center; }
+.post-card .comment-input.disabled { padding: 0; justify-content: flex-start; }
+.emoji-pop {
+  position: absolute; bottom: calc(100% + 8px); left: 0; z-index: 20; width: 300px; padding: 12px; border-radius: 12px;
+  background: var(--bg-elev); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2); animation: pop 0.15s ease-out;
+}
+.post-card .emoji-pop { left: auto; right: 0; }
+.emoji-pop-title { font-weight: 600; color: var(--text-2); margin-bottom: 8px; font-size: 13px; }
+.emoji-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; }
+.emoji-grid button { font-size: 22px; line-height: 32px; border-radius: 6px; }
+.emoji-grid button:hover { background: var(--bg-hover); }
+
+/* in-feed suggestions & caught-up marker */
+.feed-suggest { margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.feed-suggest-head { display: flex; justify-content: space-between; padding: 0 4px 12px; }
+.feed-suggest-row { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+.suggest-card {
+  flex: none; width: 152px; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 16px 12px;
+  border: 1px solid var(--border); border-radius: 8px; text-align: center;
+}
+.suggest-card .btn { margin-top: 10px; width: 100%; }
+.caught-up { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 24px 0 36px; margin-bottom: 24px; border-bottom: 1px solid var(--border); text-align: center; }
+.caught-up h3 { font-size: 20px; font-weight: 400; margin-top: 8px; }
+.caught-up.end { border-bottom: 0; }
+.check-circle { animation: pop 0.4s ease-out; }
+
+/* right rail */
+.rail { width: 319px; flex: none; padding-top: 36px; }
+.rail-me { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.rail-me .user-row-text { flex: 1; }
+.rail-head { display: flex; justify-content: space-between; margin-bottom: 8px; color: var(--text-2); font-weight: 600; }
+.rail-head .text-btn { font-size: 12px; }
+.rail .user-row .text-btn { font-size: 12px; }
+.rail-footer { margin-top: 28px; color: var(--text-3); font-size: 12px; line-height: 16px; display: flex; flex-direction: column; gap: 12px; }
+.sample-note { font-style: italic; }
+
+@media (max-width: 1159px) {
+  .rail { display: none; }
+}
+@media (max-width: 767px) {
+  .home { padding: 0; display: block; }
+  .home-feed { padding-top: 0; }
+  .stories-wrap { margin-bottom: 0; border-bottom: 1px solid var(--border); }
+  .stories { padding: 10px 8px; }
+  .stories-arrow { display: none; }
+  .feed { max-width: none; }
+  .post-card { margin-bottom: 8px; }
+  .post-head { padding: 12px 12px 10px; }
+  .post-card .post-media { border-radius: 0; outline: 0; }
+  .post-actions { margin-left: 4px; padding: 4px 4px 0 0; }
+  .post-actions .push-right { margin-right: 0; }
+  .post-body { padding: 0 12px; }
+  .feed-suggest-head { padding: 12px 12px; }
+  .feed-suggest-row { padding: 0 12px; }
+  .caught-up { padding: 24px 16px 36px; }
+}

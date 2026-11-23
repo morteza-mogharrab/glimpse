@@ -4,6 +4,10 @@ A photo-sharing web app modelled closely on Instagram's web layout and interacti
 
 > Glimpse uses its own name, logo and icon set. People, captions, comments and messages are sample content.
 
+## Screenshot
+
+![Glimpse home screen](./glompse.png)
+
 ## Run it
 
 ```bash
